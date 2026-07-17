@@ -1705,3 +1705,146 @@ nav[aria-label="Product card"]:hover .framer-7xdasw {
   color: var(--token-440156fa-50ac-4faf-baf1-398af31f7753, rgb(207, 134, 0));
   text-decoration: underline;
 }
+
+/* hifi: site-wide live chat widget (components/LiveChat.tsx). Fixed bottom-right,
+   independent of the mobile nav drawer. z-index:50 sits above the header's z-index:8. */
+.hifi-chat-launcher {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--token-440156fa-50ac-4faf-baf1-398af31f7753, rgb(207, 134, 0));
+  /* Black, not white: same orange resolves to rgb(255,85,0) at runtime — see the
+     .hifi-track-submit comment above for the measured 6.55:1 black-on-orange ratio. */
+  color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.hifi-chat-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: transparent;
+}
+.hifi-chat-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 78px;
+  z-index: 50;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  max-height: min(480px, calc(100vh - 110px));
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: opacity 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hifi-chat-panel {
+    transition: none;
+  }
+}
+.hifi-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--token-a2ff4bd6-64e4-4b5e-8dd3-30412409648e, rgb(0, 0, 0));
+  border-bottom: 1px solid rgba(33, 33, 33, 0.09);
+}
+.hifi-chat-close {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #000;
+}
+.hifi-chat-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hifi-chat-msg {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+/* Black (#000) on #f2f2f2: computed 18.77:1 — well above the 4.5:1 floor. */
+.hifi-chat-msg.from-bot {
+  align-self: flex-start;
+  background: var(--token-7252a629-7ca5-4ebc-89cf-7c3a72ac9391, #f2f2f2);
+  color: #000;
+}
+/* Black on the brand orange: same pair as .hifi-chat-launcher, measured 6.55:1
+   in the .hifi-track-submit comment above. */
+.hifi-chat-msg.from-user {
+  align-self: flex-end;
+  background: var(--token-440156fa-50ac-4faf-baf1-398af31f7753, rgb(207, 134, 0));
+  color: #000;
+}
+.hifi-chat-msg a {
+  color: inherit;
+  text-decoration: underline;
+}
+.hifi-chat-chip {
+  align-self: flex-start;
+  margin: 0 16px 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  /* rgb(97,97,97) is 5.53:1 — this file's established secondary-text grey. */
+  color: rgb(97, 97, 97);
+}
+.hifi-chat-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(33, 33, 33, 0.09);
+}
+.hifi-chat-input-row input {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid rgba(33, 33, 33, 0.18);
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
+.hifi-chat-input-row button {
+  flex: none;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--token-440156fa-50ac-4faf-baf1-398af31f7753, rgb(207, 134, 0));
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}

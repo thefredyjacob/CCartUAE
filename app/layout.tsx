@@ -4,6 +4,7 @@ import path from "node:path";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
+import LiveChat from "@/components/LiveChat";
 
 const svgTemplates = fs.readFileSync(path.join(process.cwd(), "content", "svg-templates.html"), "utf8");
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <div dangerouslySetInnerHTML={{ __html: svgTemplates }} />
         <SmoothScroll />
         <MobileNav />
+        <LiveChat />
       </body>
     </html>
   );
