@@ -1,0 +1,108 @@
+[
+  {
+    "tracking": "CRG-11-4821",
+    "service": "Ocean Freight",
+    "destination": "Al Rigga, Dubai",
+    "events": [
+      {
+        "date": "2026-07-14",
+        "time": "03:36 PM",
+        "title": "Delivered in Al Rigga",
+        "location": "Commercial Cart Office Near Al Rigga Metro Exit 2"
+      },
+      {
+        "date": "2026-07-14",
+        "time": "09:12 AM",
+        "title": "Out For Delivery",
+        "location": "Deira Distribution Hub, 5th Street Block C"
+      },
+      {
+        "date": "2026-07-13",
+        "time": "06:40 PM",
+        "title": "Arrive at Sorting Facility",
+        "location": "Dubai Central Sorting, Al Qusais"
+      },
+      {
+        "date": "2026-07-11",
+        "time": "11:05 AM",
+        "title": "Departed Shipping Facility",
+        "location": "Jebel Ali Port Terminal 2"
+      },
+      {
+        "date": "2026-07-08",
+        "time": "08:00 AM",
+        "title": "Picked up by Shipping Partner",
+        "location": "Supplier Warehouse, Shenzhen"
+      }
+    ]
+  },
+  {
+    "tracking": "CRG-11-5093",
+    "service": "Air Freight",
+    "destination": "Business Bay, Dubai",
+    "events": [
+      {
+        "date": "2026-07-15",
+        "time": "10:20 AM",
+        "title": "Out For Delivery",
+        "location": "Business Bay Courier Point, Bay Avenue"
+      },
+      {
+        "date": "2026-07-15",
+        "time": "06:55 AM",
+        "title": "Arrive at Post Office",
+        "location": "Local Post Office In Near Vicinity"
+      },
+      {
+        "date": "2026-07-14",
+        "time": "09:30 PM",
+        "title": "Departed Shipping Facility",
+        "location": "Dubai International Airport Cargo Village"
+      },
+      {
+        "date": "2026-07-13",
+        "time": "02:15 PM",
+        "title": "Picked up by Shipping Partner",
+        "location": "Supplier Warehouse, Seoul"
+      }
+    ]
+  },
+  {
+    "tracking": "CRG-11-6277",
+    "service": "Road Freight",
+    "destination": "Abu Dhabi",
+    "events": [
+      {
+        "date": "2026-07-15",
+        "time": "07:45 AM",
+        "title": "In Transit",
+        "location": "E11 Sheikh Zayed Road, En Route to Abu Dhabi"
+      },
+      {
+        "date": "2026-07-14",
+        "time": "04:10 PM",
+        "title": "Departed Shipping Facility",
+        "location": "Al Quoz Depot, Dubai"
+      },
+      {
+        "date": "2026-07-14",
+        "time": "08:00 AM",
+        "title": "Picked up by Shipping Partner",
+        "location": "Commercial Cart Office, Al Rigga"
+      }
+    ]
+  },
+  {
+    "tracking": "CRG-11-7310",
+    "service": "Ocean Freight",
+    "destination": "Sharjah",
+    "events": [
+      {
+        "date": "2026-07-12",
+        "time": "09:00 AM",
+        "title": "Picked up by Shipping Partner",
+        "location": "Will Be Delivered at Your Location"
+      }
+    ]
+  }
+]

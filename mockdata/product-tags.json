@@ -1,0 +1,23 @@
+{
+  "_comment": "Merchandising tags, keyed by product id from mock-products.json. Kept separate so the product feed stays untouched; a CMS can own this mapping later.",
+  "bestSellers": [
+    "679329",
+    "638242",
+    "638287",
+    "638254",
+    "638261",
+    "705256",
+    "252134",
+    "625355"
+  ],
+  "newArrivals": [
+    "724928",
+    "590979",
+    "582038",
+    "745746",
+    "26017",
+    "679326",
+    "638241",
+    "711027"
+  ]
+}

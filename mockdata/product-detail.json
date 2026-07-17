@@ -1,0 +1,68 @@
+{
+  "id": "252134",
+  "sku": "1232975",
+  "mainSku": "000000000001232975",
+  "name": "Apple MagSafe Charger for iPhone",
+  "nameAr": "شاحن بتقنية MagSafe من أبل لجهاز آيفون",
+  "brand": "Apple",
+  "brandAr": "أبل",
+  "category": "Mobiles & Tablets > Mobile Accessories > Batteries & Chargers",
+  "categoryAr": "الهواتف المتحركة و التابلت > إكسسوارات الهاتف المتحرك > البطاريات و الشواحن",
+  "price": 89,
+  "regularPrice": 169.0,
+  "salePrice": null,
+  "discountPercent": null,
+  "discountValue": null,
+  "currency": "AED",
+  "inStock": true,
+  "rating": 3.7,
+  "reviewCount": 776,
+  "image": "https://pimcdn.sharafdg.com/cdn-cgi/image/width=300,height=300,fit=pad/images/000000000001232975_1?1769701079",
+  "gallery": [
+    "https://pimcdn.sharafdg.com/cdn-cgi/image/width=1000,height=1000,fit=pad,format=webp,quality=70/images/000000000001232975_1?1769701079",
+    "https://pimcdn.sharafdg.com/cdn-cgi/image/width=1000,height=1000,fit=pad,format=webp,quality=70/images/000000000001232975_2?1769701079",
+    "https://pimcdn.sharafdg.com/cdn-cgi/image/width=1000,height=1000,fit=pad,format=webp,quality=70/images/000000000001232975_3?1769701079"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "Apple"
+    },
+    {
+      "label": "Color",
+      "value": "White"
+    },
+    {
+      "label": "Model Number",
+      "value": "MHXH3ZE/A"
+    },
+    {
+      "label": "Type",
+      "value": "Charger"
+    },
+    {
+      "label": "Compatible Products",
+      "value": "iPhone 12 Pro, iPhone 12 Pro Max, iPhone 12 mini, iPhone 12, iPhone 11 Pro, iPhone 11 Pro Max, iPhone 11, iPhone SE (2nd generation), iPhone XS, iPhone XS Max, iPhone XR, iPhone X, iPhone 8, iPhone 8 Plus, AirPods Pro, AirPods with Wireless Charging Case (2nd generation), Wireless Charging Case for AirPods"
+    },
+    {
+      "label": "What's in the Box",
+      "value": "MagSafe Charger, 1 m USB-C Integrated Cable"
+    },
+    {
+      "label": "Package Weight",
+      "value": "100 g"
+    }
+  ],
+  "storeAvailability": [
+    {
+      "code": "DU",
+      "store": [
+        "Dubai Hills Mall",
+        "Ibn Battuta Mall Persia Court",
+        "Ajman City Center"
+      ]
+    }
+  ],
+  "url": "https://uae.sharafdg.com/product/apple-magsafe-charger/",
+  "urlAr": "https://uae.sharafdg.com/ar/product/apple-magsafe-charger/"
+}

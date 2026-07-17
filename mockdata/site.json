@@ -1,0 +1,18 @@
+{
+  "location": {
+    "name": "Commercial Cart International FZ LLC",
+    "category": "Electronics company · Internet marketing service",
+    "address": "Al Rigga, Dubai, United Arab Emirates",
+    "phone": "052 435 0550",
+    "hoursTitle": "Hours of operation",
+    "hours": [
+      "Tuesday to Friday: 10:00 a.m. to 12:00 p.m. and 2:00 p.m. to 7:00 p.m.",
+      "Saturday: 10:00 a.m. to 7:00 p.m."
+    ]
+  },
+  "retailers": [
+    { "id": "amazon", "label": "Amazon", "url": "#" },
+    { "id": "noon", "label": "Noon", "url": "#" },
+    { "id": "sharafdg", "label": "Sharaf DG", "url": "#" }
+  ]
+}
