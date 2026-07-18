@@ -240,9 +240,21 @@ body{--token-a5af7ff8-0198-4958-836d-98f2108fe5aa:#fff;--token-a2ff4bd6-64e4-4b5
 .framer-trdTF .framer-uqvt8o-container{flex:none;width:35px;height:35px;position:relative}
 .framer-trdTF .framer-imkyoa{aspect-ratio:1;height:var(--framer-aspect-ratio-supported,40px);will-change:var(--framer-will-change-override,transform);flex-flow:column;flex:none;place-content:center;align-items:center;gap:6px;width:40px;padding:0;display:flex;position:relative;overflow:hidden}
 .framer-trdTF .framer-61u47x,.framer-trdTF .framer-hclswj{will-change:var(--framer-will-change-override,transform);flex:none;width:17px;height:2px;position:relative;overflow:hidden}
-.framer-trdTF.framer-v-1nlwkgr.framer-1r1ql1u,.framer-trdTF.framer-v-aavydh.framer-1r1ql1u{width:390px;padding:10px 16px;overflow:hidden}
+/* hifi: was width:390px — a Framer-editor phone-preview artifact baked in as a
+   literal px value, not responsive. Correct only on devices exactly 390px wide;
+   on anything else the bar centers at the wrong size, squeezing the real
+   clickable area of the button group on the right. 100% matches the parent
+   (.framer-1icr9vm-container, already width:100%) and lets the row's own
+   flex:1 0 0 button-group math resolve against the true viewport. */
+.framer-trdTF.framer-v-1nlwkgr.framer-1r1ql1u,.framer-trdTF.framer-v-aavydh.framer-1r1ql1u{width:100%;padding:10px 16px;overflow:hidden}
 .framer-trdTF.framer-v-1nlwkgr .framer-y58azi{order:0;padding:0}
-.framer-trdTF.framer-v-1nlwkgr .framer-1c0ejpy{aspect-ratio:1;height:var(--framer-aspect-ratio-supported,35px);flex:none;order:0;justify-content:flex-start;gap:0;width:35px}
+/* hifi: was aspect-ratio:1;width:35px — sized for Framer's original square icon
+   mark. .hifi-logo (line ~1260) swapped in a wide wordmark lockup, ~3.5:1 aspect,
+   rendering ~98px wide at this height — the square box didn't grow with it, so
+   the image visually overflowed past its box (overflow:visible) on top of the
+   button group while the click target stayed pinned to the old 35px. Let the box
+   size to the actual logo instead of forcing a stale square. */
+.framer-trdTF.framer-v-1nlwkgr .framer-1c0ejpy{aspect-ratio:unset;height:var(--framer-aspect-ratio-supported,35px);flex:none;order:0;justify-content:flex-start;gap:0;width:auto}
 .framer-trdTF.framer-v-1nlwkgr .framer-12bfemq{max-width:unset;order:1;gap:5px}
 .framer-trdTF.framer-v-1nlwkgr .framer-1tj4tci-container{order:0;width:35px;height:35px}
 .framer-trdTF.framer-v-1nlwkgr .framer-1o67paf-container,.framer-trdTF.framer-v-aavydh .framer-1o67paf-container{order:2}
@@ -1515,19 +1527,31 @@ nav[aria-label="Product card"]:hover .framer-7xdasw {
   list-style: none;
 }
 .hifi-track-item {
+  /* single source of truth for the date column's width — the connector line
+     below derives its position from these instead of a hardcoded duplicate,
+     so it can't drift out of sync with the dot's actual column again */
+  --hifi-track-col1: 130px;
+  --hifi-track-col2: 24px;
+  --hifi-track-gap: 16px;
   display: grid;
-  grid-template-columns: 130px 24px 1fr;
+  grid-template-columns: var(--hifi-track-col1) var(--hifi-track-col2) 1fr;
   align-items: start;
-  column-gap: 16px;
+  column-gap: var(--hifi-track-gap);
   padding-bottom: 32px;
   position: relative;
 }
 /* Connector line between dots. Drawn on the item (not the dot) so it can span
-   the gap to the next row; the last item has nothing below it to connect to. */
+   the gap to the next row; the last item has nothing below it to connect to.
+   left = end of column 1 + the gap + half the dot column, so it lands on the
+   dot's center (.hifi-track-dot is justify-self:center in that column)
+   regardless of column width — previously a hardcoded px value computed by
+   hand, off by 5px at both breakpoints. */
 .hifi-track-item:not(:last-child)::before {
   content: "";
   position: absolute;
-  left: 152px;
+  left: calc(
+    var(--hifi-track-col1) + var(--hifi-track-gap) + (var(--hifi-track-col2) / 2) - 1px
+  );
   top: 20px;
   bottom: -4px;
   width: 2px;
@@ -1620,10 +1644,7 @@ nav[aria-label="Product card"]:hover .framer-7xdasw {
     flex-direction: column;
   }
   .hifi-track-item {
-    grid-template-columns: 100px 24px 1fr;
-  }
-  .hifi-track-item:not(:last-child)::before {
-    left: 122px;
+    --hifi-track-col1: 100px;
   }
 }
 
@@ -1847,4 +1868,28 @@ nav[aria-label="Product card"]:hover .framer-7xdasw {
   font-weight: 600;
   font-size: 13px;
   cursor: pointer;
+}
+
+/* hifi: product page mobile reorder — Title before Images, rest follows.
+   .ssr-variant{display:contents} (line 231) already exposes the image
+   containers as real flex items of framer-16nlrsh; these 3 wrappers
+   (Checkout/Details/Title-group) are real boxes providing their own gap,
+   so unwrap them the same way to expose Breadcrumb/Title/Price/Description/
+   Add-to-cart/Close, then order all 7. margin-bottom per item replicates
+   each original pairing's gap (24/24/16px) now that the wrapper gaps are
+   gone. Scoped to product page root + true mobile breakpoint only — web
+   view and other pages untouched. */
+@media (max-width:809.98px){
+  .framer-LMrnX .framer-1luzld8,
+  .framer-LMrnX .framer-29f1ad,
+  .framer-LMrnX .framer-qy0cx{
+    display:contents;
+  }
+  .framer-LMrnX .framer-1qb0n9c{order:1;margin-bottom:24px}
+  .framer-LMrnX .framer-3wbw0r{order:2;margin-bottom:24px}
+  .framer-LMrnX .framer-79l7uu-container{order:3;margin-bottom:24px}
+  .framer-LMrnX .framer-8v0jzd{order:4;margin-bottom:16px}
+  .framer-LMrnX .framer-1bdesdz{order:5;margin-bottom:24px}
+  .framer-LMrnX .framer-woe65c{order:6;margin-bottom:24px}
+  .framer-LMrnX .framer-th8pfy{order:7}
 }

@@ -5,6 +5,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
 import LiveChat from "@/components/LiveChat";
+import CarouselArrows from "@/components/CarouselArrows";
 
 const svgTemplates = fs.readFileSync(path.join(process.cwd(), "content", "svg-templates.html"), "utf8");
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <SmoothScroll />
         <MobileNav />
         <LiveChat />
+        <CarouselArrows />
       </body>
     </html>
   );
