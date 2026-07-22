@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Shop premium electronics at HiFi Store. Find top-quality headphones, speakers, amplifiers, TVs and accessories with free shipping, secure payment and expert support. Your trusted audio store.",
   icons: {
-    icon: "/images/favico.webp",
+    icon: "/images/favico.avif",
     apple: "/images/favico.webp",
   },
 };
