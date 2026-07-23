@@ -23,7 +23,7 @@ const home = fs.readFileSync(path.join(process.cwd(), "content", "home", "home.h
 // The category strip repeats once per breakpoint, so every marker gets the set.
 const html = home
   .replaceAll("<!--HIFI_CATEGORIES-->", categoryTilesHtml())
-  .replaceAll("<!--HIFI_TRACK_FORM-->", trackFormHtml("", "-hero", PLACEHOLDER_SHORT))
+  .replaceAll("<!--HIFI_TRACK_FORM-->", trackFormHtml("CRG-11-4821", "-hero", PLACEHOLDER_SHORT))
   // replaceAll: the rows are injected once per breakpoint track, same as categories
   .replaceAll("<!--HIFI_BEST_SELLERS-->", BEST_SELLERS.map((p) => productCardHtml(p, "bestSellers")).join(""))
   .replaceAll("<!--HIFI_NEW_ARRIVALS-->", NEW_ARRIVALS.map((p) => productCardHtml(p, "newArrivals")).join(""));

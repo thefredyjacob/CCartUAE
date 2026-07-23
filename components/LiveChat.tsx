@@ -9,7 +9,7 @@ export default function LiveChat() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [mode, setMode] = useState<"idle" | "awaiting-tracking">("idle");
-  const [trackingInput, setTrackingInput] = useState("");
+  const [trackingInput, setTrackingInput] = useState("CRG-11-4821");
 
   // Escape closes the panel, mirrors MobileNav's listener-in-effect structure.
   useEffect(() => {
